@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/validators/email_validator.dart';
 
-class EmailTextFromField extends StatelessWidget {
+class PasswordTextFormField extends StatelessWidget {
   final TextEditingController? controller;
-  final String? initialValue;
   final String? hintText;
   final FocusNode? focusNode;
-  final TextInputAction? textInputAction;
   final Function()? onEditingComplete;
-  
-  const EmailTextFromField(
+  const PasswordTextFormField(
       {Key? key,
       this.controller,
-      this.initialValue,
       this.hintText,
       this.focusNode,
-      this.onEditingComplete, this.textInputAction})
+      this.onEditingComplete})
       : super(key: key);
 
   @override
@@ -23,12 +19,11 @@ class EmailTextFromField extends StatelessWidget {
     return Container(
       child: TextFormField(
         controller: controller,
-        initialValue: initialValue,
-        focusNode: focusNode,
-        textInputAction: textInputAction,
+        textInputAction: TextInputAction.next,
         onEditingComplete: onEditingComplete,
-        validator: (value) => emailValidator(value),
+        focusNode: focusNode,
         keyboardType: TextInputType.emailAddress,
+        validator: (value) => emailValidator(value),
         style: TextStyle(
           color: Colors.white,
         ),
@@ -43,9 +38,9 @@ class EmailTextFromField extends StatelessWidget {
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.yellow),
           ),
-          errorBorder: UnderlineInputBorder(
+         errorBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-          ),
+          ), 
         ),
       ),
     );

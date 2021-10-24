@@ -22,8 +22,14 @@ class _LoginPageState extends State<LoginPage>
   late TextEditingController _passwordController = TextEditingController();
   final _loginFormKey = GlobalKey<FormState>();
 
+  FocusNode _emailFocusNode = FocusNode();
+  FocusNode _passwordFocusNode = FocusNode();
+
   @override
   void dispose() {
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+
     _animationController.dispose();
     super.dispose();
   }
@@ -77,7 +83,16 @@ class _LoginPageState extends State<LoginPage>
                     key: _loginFormKey,
                     child: Column(
                       children: [
-                        EmailTextFromField(),
+                        EmailTextFromField(
+                          controller: _emailController,
+                          focusNode: _emailFocusNode,
+                          textInputAction: TextInputAction.next,
+                          hintText: "Email",
+                          initialValue: '',
+                          onEditingComplete: () => FocusScope.of(context)
+                              .requestFocus(_emailFocusNode),
+                            
+                        ),
                         TextFormField(
                           keyboardType: TextInputType.emailAddress,
                           controller: _emailController,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_batch21/validators/email_validator.dart';
 
 class EmailTextFromField extends StatelessWidget {
   final TextEditingController? controller;
@@ -17,18 +18,12 @@ class EmailTextFromField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
+        controller: controller,
         textInputAction: TextInputAction.next,
         onEditingComplete: onEditingComplete,
         focusNode: focusNode,
         keyboardType: TextInputType.emailAddress,
-        controller: controller,
-        validator: (value) {
-          if (value!.isEmpty || !value.contains('@')) {
-            return "Please Enter valid email";
-          } else {
-            return null;
-          }
-        },
+        validator: (value) => emailValidator(value),
         style: TextStyle(
           color: Colors.white,
         ),
@@ -41,8 +36,11 @@ class EmailTextFromField extends StatelessWidget {
             borderSide: BorderSide(color: Colors.white),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: Colors.yellow),
           ),
+         errorBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+          ), 
         ),
       ),
     );

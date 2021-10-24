@@ -18,10 +18,8 @@ class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation _animation;
-  late TextEditingController _emailController = TextEditingController(text: '');
-  // ignore: unused_field
-  late TextEditingController _passwordController =
-      TextEditingController(text: '');
+  late TextEditingController _emailController = TextEditingController();
+  late TextEditingController _passwordController = TextEditingController();
   final _loginFormKey = GlobalKey<FormState>();
 
   @override

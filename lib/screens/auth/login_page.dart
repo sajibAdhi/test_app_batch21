@@ -16,7 +16,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
-
   late AnimationController _animationController;
   late Animation _animation;
   late TextEditingController _emailController = TextEditingController(text: '');
@@ -40,16 +39,14 @@ class _LoginPageState extends State<LoginPage>
 
     _animation =
         CurvedAnimation(parent: _animationController, curve: Curves.linear)
-          ..addListener(() {
-            setState(() {});
-          })
+          ..addListener(() => setState(() {}))
           ..addStatusListener((animationStatus) {
             if (animationStatus == AnimationStatus.completed) {
               _animationController.reset();
               _animationController.forward();
             }
           });
-          
+
     _animationController.forward();
 
     super.initState();

@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage>
   late AnimationController _animationController;
   late Animation _animation;
   late TextEditingController _emailController = TextEditingController();
-  late TextEditingController _passwordController = TextEditingController();
+  // late TextEditingController _passwordController = TextEditingController();
   final _loginFormKey = GlobalKey<FormState>();
 
   FocusNode _emailFocusNode = FocusNode();

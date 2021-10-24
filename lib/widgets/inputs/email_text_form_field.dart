@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/validators/email_validator.dart';
+import 'package:test_app_batch21/widgets/inputs/underline_input_border_colors.dart';
 
 class EmailTextFromField extends StatelessWidget {
   final TextEditingController? controller;
@@ -8,14 +9,15 @@ class EmailTextFromField extends StatelessWidget {
   final FocusNode? focusNode;
   final TextInputAction? textInputAction;
   final Function()? onEditingComplete;
-  
+
   const EmailTextFromField(
       {Key? key,
       this.controller,
       this.initialValue,
       this.hintText,
       this.focusNode,
-      this.onEditingComplete, this.textInputAction})
+      this.onEditingComplete,
+      this.textInputAction})
       : super(key: key);
 
   @override
@@ -37,15 +39,9 @@ class EmailTextFromField extends StatelessWidget {
           hintStyle: TextStyle(
             color: Colors.white,
           ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.yellow),
-          ),
-          errorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
-          ),
+          enabledBorder: UnderlineInputBorderColors.white,
+          focusedBorder: UnderlineInputBorderColors.yellow,
+          errorBorder: UnderlineInputBorderColors.red,
         ),
       ),
     );

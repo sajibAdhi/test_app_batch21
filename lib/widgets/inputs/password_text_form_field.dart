@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/validators/email_validator.dart';
+import 'package:test_app_batch21/widgets/inputs/underline_input_border_colors.dart';
 
 class PasswordTextFormField extends StatelessWidget {
   final TextEditingController? controller;
+  final String? initialValue;
   final String? hintText;
   final FocusNode? focusNode;
+  final TextInputAction? textInputAction;
   final Function()? onEditingComplete;
+
   const PasswordTextFormField(
       {Key? key,
       this.controller,
+      this.initialValue,
       this.hintText,
       this.focusNode,
-      this.onEditingComplete})
+      this.onEditingComplete,
+      this.textInputAction})
       : super(key: key);
 
   @override
@@ -19,11 +25,12 @@ class PasswordTextFormField extends StatelessWidget {
     return Container(
       child: TextFormField(
         controller: controller,
-        textInputAction: TextInputAction.next,
-        onEditingComplete: onEditingComplete,
+        initialValue: initialValue,
         focusNode: focusNode,
-        keyboardType: TextInputType.emailAddress,
+        textInputAction: textInputAction,
+        onEditingComplete: onEditingComplete,
         validator: (value) => emailValidator(value),
+        keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           color: Colors.white,
         ),
@@ -32,15 +39,9 @@ class PasswordTextFormField extends StatelessWidget {
           hintStyle: TextStyle(
             color: Colors.white,
           ),
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.yellow),
-          ),
-         errorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
-          ), 
+          enabledBorder: UnderlineInputBorderColors.white,
+          focusedBorder: UnderlineInputBorderColors.yellow,
+          errorBorder: UnderlineInputBorderColors.red,
         ),
       ),
     );

@@ -20,7 +20,8 @@ class _LoginPageState extends State<LoginPage>
   late AnimationController _animationController;
   late Animation _animation;
   late TextEditingController _emailController = TextEditingController(text: '');
-  late TextEditingController _passwordController = TextEditingController();
+  late TextEditingController _passwordController =
+      TextEditingController(text: '');
   final _loginFormKey = GlobalKey<FormState>();
 
   FocusNode _emailFocusNode = FocusNode();
@@ -90,7 +91,7 @@ class _LoginPageState extends State<LoginPage>
                           textInputAction: TextInputAction.next,
                           hintText: "Email",
                           onEditingComplete: () => FocusScope.of(context)
-                              .requestFocus(_emailFocusNode),
+                              .requestFocus(_passwordFocusNode),
                         ),
                         SizedBox(height: _size.height * 0.01),
                         PasswordTextFormField(

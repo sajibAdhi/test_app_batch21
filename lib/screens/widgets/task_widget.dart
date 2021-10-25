@@ -49,8 +49,8 @@ class TaskWidget extends StatelessWidget {
           child: CircleAvatar(
             radius: 20,
             child: Image.network(
-              'https://cdn-icons.flaticon.com/png/128/3978/premium/3978259.png?token=exp=1635138161~hmac=0c1665bc9d968e0aa3f08ad3d68f1222',
-              fit: BoxFit.contain,
+              'https://image.similarpng.com/thumbnail/2021/05/Whatsapp-icon-design-with-dark-black-brush-on-transparent-background-PNG.png',
+              fit: BoxFit.cover,
             ),
           ),
         ),

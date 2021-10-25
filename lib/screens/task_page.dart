@@ -9,15 +9,15 @@ class TaskPage extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(),
       appBar: AppBar(
-        leading: Builder(builder: (context) {
-          return IconButton(
+        leading: Builder(
+          builder: (context) => IconButton(
             onPressed: () => Scaffold.of(context).openDrawer(),
             icon: Icon(
               Icons.menu,
               color: Colors.teal,
             ),
-          );
-        }),
+          ),
+        ),
         elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(

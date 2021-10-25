@@ -9,7 +9,32 @@ class TaskWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       elevation: 10,
       child: ListTile(
-        onTap: () {},
+        // Alert, Popup, Prompt
+        onTap: () => showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            actions: [
+              TextButton(
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.delete_rounded,
+                      color: Colors.teal,
+                    ),
+                    Text(
+                      'Delete',
+                      style: TextStyle(
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
         onLongPress: () {},
         contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         leading: Container(

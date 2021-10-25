@@ -3,7 +3,7 @@ import 'package:test_app_batch21/validators/password_validator.dart';
 
 import 'underline_input_border_colors.dart';
 
-class PasswordTextFormField extends StatelessWidget {
+class PasswordTextFormField extends StatefulWidget {
   final TextEditingController? controller;
   final String? initialValue;
   final String? hintText;
@@ -22,20 +22,37 @@ class PasswordTextFormField extends StatelessWidget {
       : super(key: key);
 
   @override
+  _PasswordTextFormFieldState createState() => _PasswordTextFormFieldState();
+}
+
+class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
+  bool _obsecureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
-        controller: controller,
-        initialValue: initialValue,
-        focusNode: focusNode,
-        textInputAction: textInputAction,
-        onEditingComplete: onEditingComplete,
+        controller: widget.controller,
+        initialValue: widget.initialValue,
+        focusNode: widget.focusNode,
+        textInputAction: widget.textInputAction,
+        onEditingComplete: widget.onEditingComplete,
         validator: (value) => passwordValidator(value),
+        obscureText: _obsecureText,
         style: TextStyle(
           color: Colors.white,
         ),
         decoration: InputDecoration(
-          hintText: hintText,
+          suffixIcon: GestureDetector(
+            onTap: () => setState(() {
+              _obsecureText = !_obsecureText;
+            }),
+            child: Icon(
+              _obsecureText ? Icons.visibility_off : Icons.visibility,
+              color: Colors.white,
+            ),
+          ),
+          hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Colors.white,
           ),

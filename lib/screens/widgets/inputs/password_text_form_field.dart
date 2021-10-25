@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/validators/email_validator.dart';
-import 'package:test_app_batch21/widgets/inputs/underline_input_border_colors.dart';
+
+import 'underline_input_border_colors.dart';
 
 class PasswordTextFormField extends StatelessWidget {
   final TextEditingController? controller;

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/auth/login_page.dart';
-import 'package:test_app_batch21/widgets/buttons/custom_material_button.dart';
-import 'package:test_app_batch21/widgets/layout/background_image_widget.dart';
-import 'package:test_app_batch21/widgets/layout/header_widget.dart';
+import 'package:test_app_batch21/screens/widgets/buttons/custom_material_button.dart';
+import 'package:test_app_batch21/screens/widgets/inputs/email_text_form_field.dart';
+import 'package:test_app_batch21/screens/widgets/layout/background_image_widget.dart';
+import 'package:test_app_batch21/screens/widgets/layout/header_widget.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class _RegisterPageState extends State<RegisterPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation _animation;
+  // ignore: unused_field
   late TextEditingController _fullNameController =
       TextEditingController(text: '');
   late TextEditingController _emailController = TextEditingController(text: '');
@@ -89,35 +91,13 @@ class _RegisterPageState extends State<RegisterPage>
                     key: _loginFormKey,
                     child: Column(
                       children: [
-                        TextFormField(
+                        EmailTextFromField(
+                          controller: _emailController,
+                          focusNode: _emailFocusNode,
                           textInputAction: TextInputAction.next,
+                          hintText: "Email",
                           onEditingComplete: () => FocusScope.of(context)
                               .requestFocus(_emailFocusNode),
-                          focusNode: _fullNameFocusNode,
-                          keyboardType: TextInputType.name,
-                          controller: _fullNameController,
-                          validator: (value) {
-                            if (value!.isEmpty || !value.contains('@')) {
-                              return "Please Enter valid email";
-                            } else {
-                              return null;
-                            }
-                          },
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: "Full Name",
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
                         ),
                         SizedBox(height: _size.height * 0.02),
                         TextFormField(

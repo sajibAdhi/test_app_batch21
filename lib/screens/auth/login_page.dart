@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/auth/forget_password_page.dart';
 import 'package:test_app_batch21/screens/auth/register_page.dart';
-import 'package:test_app_batch21/widgets/buttons/custom_material_button.dart';
-import 'package:test_app_batch21/widgets/buttons/custom_text_button.dart';
-import 'package:test_app_batch21/widgets/inputs/email_text_form_field.dart';
-import 'package:test_app_batch21/widgets/layout/background_image_widget.dart';
-import 'package:test_app_batch21/widgets/layout/header_widget.dart';
+import 'package:test_app_batch21/screens/widgets/buttons/custom_material_button.dart';
+import 'package:test_app_batch21/screens/widgets/buttons/custom_text_button.dart';
+import 'package:test_app_batch21/screens/widgets/inputs/email_text_form_field.dart';
+import 'package:test_app_batch21/screens/widgets/inputs/password_text_form_field.dart';
+import 'package:test_app_batch21/screens/widgets/layout/background_image_widget.dart';
+import 'package:test_app_batch21/screens/widgets/layout/header_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -18,8 +19,8 @@ class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation _animation;
-  late TextEditingController _emailController = TextEditingController();
-  // late TextEditingController _passwordController = TextEditingController();
+  late TextEditingController _emailController = TextEditingController(text: '');
+  late TextEditingController _passwordController = TextEditingController();
   final _loginFormKey = GlobalKey<FormState>();
 
   FocusNode _emailFocusNode = FocusNode();
@@ -57,8 +58,8 @@ class _LoginPageState extends State<LoginPage>
   }
 
   void _submitFormLogin() {
+    // ignore: unused_local_variable
     final isValid = _loginFormKey.currentState!.validate();
-    print('isValid $isValid');
   }
 
   @override
@@ -88,51 +89,16 @@ class _LoginPageState extends State<LoginPage>
                           focusNode: _emailFocusNode,
                           textInputAction: TextInputAction.next,
                           hintText: "Email",
-                          initialValue: '',
                           onEditingComplete: () => FocusScope.of(context)
                               .requestFocus(_emailFocusNode),
-                            
                         ),
-                        TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _emailController,
-                          validator: (value) {
-                            if (value!.isEmpty || !value.contains('@')) {
-                              return "Please Enter valid email";
-                            } else {
-                              return null;
-                            }
-                          },
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: "Email",
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: _size.height * 0.02),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Passowrd',
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
+                        SizedBox(height: _size.height * 0.01),
+                        PasswordTextFormField(
+                          controller: _passwordController,
+                          focusNode: _passwordFocusNode,
+                          hintText: 'Password',
+                          textInputAction: TextInputAction.done,
+                          onEditingComplete: _submitFormLogin,
                         ),
                         SizedBox(height: _size.height * 0.01),
                         CustomTextButton(

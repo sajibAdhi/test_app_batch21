@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/auth/login_page.dart';
-import 'package:test_app_batch21/widgets/buttons/custom_material_button.dart';
-import 'package:test_app_batch21/widgets/layout/background_image_widget.dart';
-import 'package:test_app_batch21/widgets/layout/header_widget.dart';
+import 'package:test_app_batch21/screens/widgets/buttons/custom_material_button.dart';
+import 'package:test_app_batch21/screens/widgets/layout/background_image_widget.dart';
+import 'package:test_app_batch21/screens/widgets/layout/header_widget.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   const ForgetPasswordPage({Key? key}) : super(key: key);

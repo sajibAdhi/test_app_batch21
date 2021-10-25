@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_batch21/validators/email_validator.dart';
+import 'package:test_app_batch21/validators/password_validator.dart';
 
 import 'underline_input_border_colors.dart';
 
@@ -30,8 +30,7 @@ class PasswordTextFormField extends StatelessWidget {
         focusNode: focusNode,
         textInputAction: textInputAction,
         onEditingComplete: onEditingComplete,
-        validator: (value) => emailValidator(value),
-        keyboardType: TextInputType.emailAddress,
+        validator: (value) => passwordValidator(value),
         style: TextStyle(
           color: Colors.white,
         ),

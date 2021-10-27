@@ -56,6 +56,10 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
   void _submitForm() {
     final isValid = _loginFormKey.currentState!.validate();
     print('isValid $isValid');
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
   }
 
   @override
@@ -91,6 +95,11 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
                         ),
                         SizedBox(height: _size.height * .01),
                         TextField(
+                          controller: _emailController,
+                          focusNode: _emailFocusNode,
+                          textInputAction: TextInputAction.done,
+                          onEditingComplete: _submitForm,
+                          keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -100,7 +109,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
                         ),
                         SizedBox(height: _size.height * .02),
                         CustomMaterialButton(
-                          onPressed: () {},
+                          onPressed: _submitForm,
                           text: 'Registrartion',
                           icon: Icons.login_sharp,
                         ),

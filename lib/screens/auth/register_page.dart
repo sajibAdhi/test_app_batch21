@@ -66,9 +66,14 @@ class _RegisterPageState extends State<RegisterPage>
     super.initState();
   }
 
-  void _submitFormLogin() {
+  void _submitForm() {
     final isValid = _loginFormKey.currentState!.validate();
-    print('isValid $isValid');
+    if (isValid) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    }
   }
 
   @override
@@ -123,7 +128,7 @@ class _RegisterPageState extends State<RegisterPage>
                           controller: _designationController,
                           focusNode: _designationFocusNode,
                           hintText: 'Designation',
-                          onEditingComplete: _submitFormLogin,
+                          onEditingComplete: _submitForm,
                           textInputAction: TextInputAction.done,
                         ),
                         SizedBox(height: _size.height * 0.05),

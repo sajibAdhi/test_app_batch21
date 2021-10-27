@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/auth/forget_password_page.dart';
 import 'package:test_app_batch21/screens/auth/register_page.dart';
+import 'package:test_app_batch21/screens/task_page.dart';
 import 'package:test_app_batch21/screens/widgets/buttons/custom_material_button.dart';
 import 'package:test_app_batch21/screens/widgets/buttons/custom_text_button.dart';
 import 'package:test_app_batch21/screens/widgets/inputs/email_text_form_field.dart';
@@ -61,7 +62,12 @@ class _LoginPageState extends State<LoginPage>
   void _submitFormLogin() {
     // ignore: unused_local_variable
     final isValid = _loginFormKey.currentState!.validate();
-    print("isValid : $isValid");
+    if (isValid) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TaskPage()),
+      );
+    }
   }
 
   @override

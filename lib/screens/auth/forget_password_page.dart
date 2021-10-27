@@ -79,6 +79,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
                   Form(
                     key: _loginFormKey,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Email Address',
@@ -88,6 +89,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
                             color: Colors.white,
                           ),
                         ),
+                        SizedBox(height: _size.height * .01),
                         TextField(
                           decoration: InputDecoration(
                             filled: true,
@@ -96,6 +98,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
                             focusedBorder: UnderlineInputBorderColors.white,
                           ),
                         ),
+                        SizedBox(height: _size.height * .02),
                         CustomMaterialButton(
                           onPressed: () {},
                           text: 'Registrartion',

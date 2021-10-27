@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/auth/login_page.dart';
 import 'package:test_app_batch21/screens/widgets/buttons/custom_material_button.dart';
+import 'package:test_app_batch21/screens/widgets/inputs/underline_input_border_colors.dart';
 import 'package:test_app_batch21/screens/widgets/layout/background_image_widget.dart';
 import 'package:test_app_batch21/screens/widgets/layout/header_widget.dart';
 
@@ -79,7 +80,22 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage>
                     key: _loginFormKey,
                     child: Column(
                       children: [
-                        TextField(),
+                        Text(
+                          'Email Address',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            enabledBorder: UnderlineInputBorderColors.white,
+                            focusedBorder: UnderlineInputBorderColors.white,
+                          ),
+                        ),
                         CustomMaterialButton(
                           onPressed: () {},
                           text: 'Registrartion',

@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/widgets/task_widget.dart';
 
 class TaskPage extends StatelessWidget {
-  // ignore: unused_field
-  List<String> _taskCategoryList = [
-    'Business',
-    'Business',
-    'Business',
-    'Business',
-  ];
+  // List<String> _taskCategoryList = [
+  //   'Business',
+  //   'Business',
+  //   'Business',
+  //   'Business',
+  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

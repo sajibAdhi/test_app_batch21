@@ -61,6 +61,7 @@ class _LoginPageState extends State<LoginPage>
   void _submitFormLogin() {
     // ignore: unused_local_variable
     final isValid = _loginFormKey.currentState!.validate();
+    print("isValid : $isValid");
   }
 
   @override
@@ -85,7 +86,7 @@ class _LoginPageState extends State<LoginPage>
                     key: _loginFormKey,
                     child: Column(
                       children: [
-                        EmailTextFromField(
+                        EmailTextFormField(
                           controller: _emailController,
                           focusNode: _emailFocusNode,
                           textInputAction: TextInputAction.next,

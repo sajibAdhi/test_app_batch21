@@ -91,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage>
                     key: _loginFormKey,
                     child: Column(
                       children: [
-                        EmailTextFromField(
+                        EmailTextFormField(
                           controller: _emailController,
                           focusNode: _emailFocusNode,
                           textInputAction: TextInputAction.next,

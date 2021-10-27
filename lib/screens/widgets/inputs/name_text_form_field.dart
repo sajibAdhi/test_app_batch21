@@ -3,14 +3,14 @@ import 'package:test_app_batch21/validators/email_validator.dart';
 
 import 'underline_input_border_colors.dart';
 
-class EmailTextFormField extends StatefulWidget {
+class NameTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final String? hintText;
   final FocusNode? focusNode;
   final TextInputAction? textInputAction;
   final Function()? onEditingComplete;
 
-  const EmailTextFormField(
+  const NameTextFormField(
       {Key? key,
       required this.controller,
       this.hintText,
@@ -20,10 +20,10 @@ class EmailTextFormField extends StatefulWidget {
       : super(key: key);
 
   @override
-  _EmailTextFormFieldState createState() => _EmailTextFormFieldState();
+  _NameTextFormFieldState createState() => _NameTextFormFieldState();
 }
 
-class _EmailTextFormFieldState extends State<EmailTextFormField> {
+class _NameTextFormFieldState extends State<NameTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,8 +32,8 @@ class _EmailTextFormFieldState extends State<EmailTextFormField> {
         focusNode: widget.focusNode,
         textInputAction: widget.textInputAction,
         onEditingComplete: widget.onEditingComplete,
-        validator: (value) => emailValidator(value),
-        keyboardType: TextInputType.emailAddress,
+        // validator: (value) => emailValidator(value),
+        keyboardType: TextInputType.text,
         style: TextStyle(
           color: Colors.white,
         ),

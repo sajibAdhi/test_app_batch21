@@ -37,7 +37,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
         focusNode: widget.focusNode,
         textInputAction: widget.textInputAction,
         onEditingComplete: widget.onEditingComplete,
-        validator: (value) => passwordValidator(value),
+        validator: (value) => passwordValidator(value, widget.hintText),
         obscureText: _obsecureText,
         style: TextStyle(
           color: Colors.white,

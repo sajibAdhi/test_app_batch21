@@ -32,7 +32,7 @@ class _EmailTextFormFieldState extends State<EmailTextFormField> {
         focusNode: widget.focusNode,
         textInputAction: widget.textInputAction,
         onEditingComplete: widget.onEditingComplete,
-        validator: (value) => emailValidator(value),
+        validator: (value) => emailValidator(value, widget.hintText),
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           color: Colors.white,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:test_app_batch21/screens/auth/login_page.dart';
 import 'package:test_app_batch21/screens/widgets/buttons/custom_material_button.dart';
 import 'package:test_app_batch21/screens/widgets/inputs/email_text_form_field.dart';
+import 'package:test_app_batch21/screens/widgets/inputs/name_text_form_field.dart';
+import 'package:test_app_batch21/screens/widgets/inputs/password_text_form_field.dart';
 import 'package:test_app_batch21/screens/widgets/layout/background_image_widget.dart';
 import 'package:test_app_batch21/screens/widgets/layout/header_widget.dart';
 
@@ -91,94 +93,38 @@ class _RegisterPageState extends State<RegisterPage>
                     key: _loginFormKey,
                     child: Column(
                       children: [
+                        NameTextFormField(
+                          controller: _fullNameController,
+                          focusNode: _fullNameFocusNode,
+                          hintText: 'Full Name',
+                          onEditingComplete: () => FocusScope.of(context)
+                              .requestFocus(_emailFocusNode),
+                        ),
+                        SizedBox(height: _size.height * 0.01),
                         EmailTextFormField(
                           controller: _emailController,
                           focusNode: _emailFocusNode,
                           textInputAction: TextInputAction.next,
                           hintText: "Email",
                           onEditingComplete: () => FocusScope.of(context)
-                              .requestFocus(_emailFocusNode),
-                        ),
-                        SizedBox(height: _size.height * 0.02),
-                        TextFormField(
-                          textInputAction: TextInputAction.next,
-                          onEditingComplete: () => FocusScope.of(context)
                               .requestFocus(_passwordFocusNode),
-                          focusNode: _emailFocusNode,
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _emailController,
-                          validator: (value) {
-                            if (value!.isEmpty || !value.contains('@')) {
-                              return "Please Enter valid email";
-                            } else {
-                              return null;
-                            }
-                          },
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: "Email",
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
                         ),
-                        SizedBox(height: _size.height * 0.02),
-                        TextFormField(
+                        SizedBox(height: _size.height * 0.01),
+                        PasswordTextFormField(
+                          controller: _passwordController,
+                          focusNode: _passwordFocusNode,
+                          hintText: 'Password',
                           textInputAction: TextInputAction.next,
                           onEditingComplete: () => FocusScope.of(context)
                               .requestFocus(_designationFocusNode),
-                          focusNode: _passwordFocusNode,
-                          controller: _passwordController,
-                          decoration: InputDecoration(
-                            hintText: 'Passowrd',
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
                         ),
-                        SizedBox(height: _size.height * 0.02),
-                        TextFormField(
-                          textInputAction: TextInputAction.done,
-                          onEditingComplete: () => _submitFormLogin(),
-                          focusNode: _designationFocusNode,
-                          keyboardType: TextInputType.name,
+                        SizedBox(height: _size.height * 0.01),
+                        NameTextFormField(
                           controller: _designationController,
-                          validator: (value) {
-                            if (value!.isEmpty || !value.contains('@')) {
-                              return "Please Enter valid email";
-                            } else {
-                              return null;
-                            }
-                          },
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                            hintText: "Designation",
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                          ),
+                          focusNode: _designationFocusNode,
+                          hintText: 'Designation',
+                          onEditingComplete: _submitFormLogin,
+                          textInputAction: TextInputAction.done,
                         ),
                         SizedBox(height: _size.height * 0.05),
                         CustomMaterialButton(

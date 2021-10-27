@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_batch21/validators/email_validator.dart';
+import 'package:test_app_batch21/validators/name_validator.dart';
 
 import 'underline_input_border_colors.dart';
 
@@ -32,7 +32,7 @@ class _NameTextFormFieldState extends State<NameTextFormField> {
         focusNode: widget.focusNode,
         textInputAction: widget.textInputAction,
         onEditingComplete: widget.onEditingComplete,
-        // validator: (value) => emailValidator(value),
+        validator: (value) => nameValidator(value, widget.hintText),
         keyboardType: TextInputType.text,
         style: TextStyle(
           color: Colors.white,
